@@ -1,0 +1,25 @@
+
+function reqListener() {
+    const data=JSON.parse(this.responseText)
+    
+  let datum= data.filter(collectingData);
+    //console.log(data);
+   
+   function collectingData(dat){
+
+    if(dat.currencies != undefined){
+        if(dat.currencies.USD != undefined){
+            return dat;
+        }
+         }
+    
+       
+      }
+  
+   console.log(datum)
+  }
+  
+  const req = new XMLHttpRequest();
+  req.addEventListener("load", reqListener);
+  req.open("GET", "https://restcountries.com/v3.1/all");
+  req.send();
